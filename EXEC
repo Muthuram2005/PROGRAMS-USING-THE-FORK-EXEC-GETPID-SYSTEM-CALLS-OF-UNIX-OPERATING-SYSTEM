@@ -1,0 +1,33 @@
+#include<stdio.h> 
+#include<sys/types.h> 
+#include<wait.h> 
+#include<unistd.h> 
+int main() 
+{ 
+int ch; 
+char fn[10],f[10]; 
+printf("\n Process Execution"); 
+printf("\n1. List out files"); 
+printf("\n2. Content list"); 
+printf("\n3. Move a file"); 
+printf("\n4. Exit"); 
+printf("\n Enter your choice:"); 
+scanf("%d",&ch); 
+switch(ch) 
+{ 
+case 1:execl("/bin/ls","ls",0); 
+break; 
+case 2:printf("\n enter the file name"); 
+scanf("%s",fn); 
+execl("/bin/cat","cat",fn,0); 
+break; 
+case 3:printf("\n Enter exit file"); 
+scanf("%s",fn); 
+printf("\n Enter destination file"); 
+scanf("%s",f); 
+execl("/bin/mv","mv",fn,f,0); 
+break; 
+case 4:exit(1); 
+} 
+exit(0); 
+}
