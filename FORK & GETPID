@@ -1,0 +1,27 @@
+#include<stdio.h> 
+#include<sys/types.h> 
+#include<sys/stat.h> 
+#include<unistd.h> 
+int main() 
+{ 
+int pid; 
+pid=fork(); 
+if(pid==0) 
+{ 
+printf("\nchild process initiated %d", getpid()); 
+kill(0); 
+printf("\nchild process terminated"); 
+} 
+else 
+{ 
+if(pid>0) 
+{ 
+printf("\nParent process initiated %d",getpid()); 
+wait(); 
+kill(0); 
+printf("\nParent process Terminated"); 
+} 
+else 
+printf("process contain error"); 
+} 
+}
