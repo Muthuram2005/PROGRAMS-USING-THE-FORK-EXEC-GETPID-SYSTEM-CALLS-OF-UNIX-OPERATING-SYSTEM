@@ -1,0 +1,13 @@
+#include<fcntl.h> 
+#include<unistd.h> 
+int main( ) 
+{ 
+char fn[1000]; 
+int m.w; 
+print(“ENTER THE FILE NAME:”); 
+scanf(“%s”,fn); 
+m=open(fn,O_RDONLY); 
+w=read(m,fn,1000); 
+write(1,fn,w); 
+return 0; 
+}
